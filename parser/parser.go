@@ -31,22 +31,6 @@ var precedences = map[token.TokenType]int{
 	token.ASTERISK: PRODUCT,
 }
 
-func (p *Parser) peekPrecedence() int {
-	if p, ok := precedences[p.peekToken.Type]; ok {
-		return p
-	}
-
-	return LOWEST
-}
-
-func (p *Parser) curPrecedence() int {
-	if p, ok := precedences[p.curToken.Type]; ok {
-		return p
-	}
-
-	return LOWEST
-}
-
 type (
 	prefixParseFn func() ast.Expression
 	infixParseFn  func(ast.Expression) ast.Expression
@@ -84,12 +68,18 @@ func New(l *lexer.Lexer) *Parser {
 	p.registerInfix(token.NOT_EQ, p.parseInfixExpression)
 	p.registerInfix(token.LT, p.parseInfixExpression)
 	p.registerInfix(token.GT, p.parseInfixExpression)
+	p.registerPrefix(token.TRUE, p.parseBoolean)
+	p.registerPrefix(token.FALSE, p.parseBoolean)
 
 	// Read two tokens, so curToken and peekToken are both set
 	p.nextToken()
 	p.nextToken()
 
 	return p
+}
+
+func (p *Parser) parseBoolean() ast.Expression {
+	return &ast.Boolean{Token: p.curToken, Value: p.curTokenIs(token.TRUE)}
 }
 
 func (p *Parser) registerPrefix(tokenType token.TokenType, fn prefixParseFn) {
@@ -102,6 +92,22 @@ func (p *Parser) registerInfix(tokenType token.TokenType, fn infixParseFn) {
 
 func (p *Parser) Errors() []string {
 	return p.errors
+}
+
+func (p *Parser) peekPrecedence() int {
+	if p, ok := precedences[p.peekToken.Type]; ok {
+		return p
+	}
+
+	return LOWEST
+}
+
+func (p *Parser) curPrecedence() int {
+	if p, ok := precedences[p.curToken.Type]; ok {
+		return p
+	}
+
+	return LOWEST
 }
 
 func (p *Parser) peekError(t token.TokenType) {
