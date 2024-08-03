@@ -7,5 +7,7 @@
 - implement block functions as inline lambdas
 - implement incrementers and decrementers
 - '>=' and '<=' operators
+- character escaping \n \t ...
+- multiply a string by an integer to repeat it
 
-left off at: 124
+Done 😊
