@@ -104,4 +104,13 @@ var builtins = map[string]*object.Builtin{
 			return NULL
 		},
 	},
+	"meaning_of_life": &object.Builtin{
+		Fn: func(args ...object.Object) object.Object {
+			if len(args) > 0 {
+				return newError("wrong number of arguments. got=%d, want=0", len(args))
+			}
+
+			return &object.Integer{Value: 42}
+		},
+	},
 }

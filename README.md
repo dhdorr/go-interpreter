@@ -30,7 +30,8 @@
 - Print Out
 
     ```
-    puts("Welcome to Monkey!);      // Welcome to Monkey! 
+    puts("Welcome to Monkey!");      // Welcome to Monkey! 
+    puts(meaning_of_life());        // 42
     ```
 
 - Variables
