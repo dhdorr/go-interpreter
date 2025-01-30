@@ -1,22 +1,21 @@
 # go-interpreter
- Writing an Interpreter in Go book follow along
-
- Monkey programming language interpreter hosted on Go
+ Monkey programming language interpreter built with Go
 
 # Project Extention Ideas
 - instead of using Bytes to read chars, use Runes to enable emojis etc as valid tokens
 - add postfix operator support
 - implement block functions as inline lambdas
 - implement incrementers and decrementers
-- '>=' and '<=' operators
 - character escaping \n \t ...
 - multiply a string by an integer to repeat it
 
 # Supported Data Types
 - Integers
+- Booleans
 - Strings
 - Arrays
 - Hashmaps
+- Functions
 
 # Language Features
 - Functions
