@@ -19,6 +19,7 @@ const (
 	PREFIX      // -X OR !X
 	CALL        // myFunction(X)
 	INDEX       // array[index]
+	LGE         // <= or >=
 )
 
 var precedences = map[token.TokenType]int{
@@ -32,6 +33,8 @@ var precedences = map[token.TokenType]int{
 	token.ASTERISK: PRODUCT,
 	token.LPAREN:   CALL,
 	token.LBRACKET: INDEX,
+	token.LE:       LGE,
+	token.GE:       LGE,
 }
 
 type (
@@ -82,6 +85,8 @@ func New(l *lexer.Lexer) *Parser {
 	p.registerInfix(token.GT, p.parseInfixExpression)
 	p.registerInfix(token.LPAREN, p.parseCallExpression)
 	p.registerInfix(token.LBRACKET, p.parseIndexExpression)
+	p.registerInfix(token.GE, p.parseInfixExpression)
+	p.registerInfix(token.LE, p.parseInfixExpression)
 
 	// Read two tokens, so curToken and peekToken are both set
 	p.nextToken()

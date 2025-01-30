@@ -28,6 +28,8 @@ const (
 	GT     = ">"
 	EQ     = "=="
 	NOT_EQ = "!="
+	LE     = "<="
+	GE     = ">="
 
 	// Delimiters
 	COMMA     = ","
