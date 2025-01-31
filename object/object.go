@@ -6,7 +6,7 @@ import (
 	"hash/fnv"
 	"strings"
 
-	"github.com/dhdorr/go-interpreter/ast"
+	"go-interpreter/ast"
 )
 
 type ObjectType string

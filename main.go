@@ -5,7 +5,7 @@ import (
 	"os"
 	"os/user"
 
-	"github.com/dhdorr/go-interpreter/repl"
+	"go-interpreter/repl"
 )
 
 func main() {

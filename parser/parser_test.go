@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dhdorr/go-interpreter/ast"
-	"github.com/dhdorr/go-interpreter/lexer"
+	"go-interpreter/ast"
+	"go-interpreter/lexer"
 )
 
 func TestLetStatements(t *testing.T) {

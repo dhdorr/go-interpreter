@@ -3,7 +3,7 @@ package ast
 import (
 	"testing"
 
-	"github.com/dhdorr/go-interpreter/token"
+	"go-interpreter/token"
 )
 
 func TestString(t *testing.T) {

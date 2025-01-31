@@ -3,7 +3,7 @@ package evaluator
 import (
 	"fmt"
 
-	"github.com/dhdorr/go-interpreter/object"
+	"go-interpreter/object"
 )
 
 var builtins = map[string]*object.Builtin{

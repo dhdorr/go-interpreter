@@ -3,8 +3,8 @@ package evaluator
 import (
 	"fmt"
 
-	"github.com/dhdorr/go-interpreter/ast"
-	"github.com/dhdorr/go-interpreter/object"
+	"go-interpreter/ast"
+	"go-interpreter/object"
 )
 
 var (

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"strings"
 
-	"github.com/dhdorr/go-interpreter/token"
+	"go-interpreter/token"
 )
 
 type Program struct {

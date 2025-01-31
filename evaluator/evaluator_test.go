@@ -3,9 +3,9 @@ package evaluator
 import (
 	"testing"
 
-	"github.com/dhdorr/go-interpreter/lexer"
-	"github.com/dhdorr/go-interpreter/object"
-	"github.com/dhdorr/go-interpreter/parser"
+	"go-interpreter/lexer"
+	"go-interpreter/object"
+	"go-interpreter/parser"
 )
 
 func TestEvalIntegerExpression(t *testing.T) {

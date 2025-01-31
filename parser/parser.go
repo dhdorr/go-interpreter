@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/dhdorr/go-interpreter/ast"
-	"github.com/dhdorr/go-interpreter/lexer"
-	"github.com/dhdorr/go-interpreter/token"
+	"go-interpreter/ast"
+	"go-interpreter/lexer"
+	"go-interpreter/token"
 )
 
 const (

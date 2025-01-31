@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/dhdorr/go-interpreter/evaluator"
-	"github.com/dhdorr/go-interpreter/lexer"
-	"github.com/dhdorr/go-interpreter/object"
-	"github.com/dhdorr/go-interpreter/parser"
+	"go-interpreter/evaluator"
+	"go-interpreter/lexer"
+	"go-interpreter/object"
+	"go-interpreter/parser"
 )
 
 const PROMPT = ">> "
