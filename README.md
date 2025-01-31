@@ -8,6 +8,7 @@
 - implement incrementers and decrementers
 - character escaping \n \t ...
 - multiply a string by an integer to repeat it
+- turn into a web-based CLI hosted on Azure (go | htmx | sqlite3)
 
 # Supported Data Types
 - Integers
