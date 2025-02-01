@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Me!</title>
+
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    
+</head>
+<body>
+    <h1>Hello There</h1>
+    <div class="content-container" id="content">
+        <div class="login-container">
+            <button class="create-button" id="createButton" hx-get="/create" hx-swap="innerHTML" hx-target="#content">Create Session</button>
+        </div>
+    </div>
+</body>
+</html>
