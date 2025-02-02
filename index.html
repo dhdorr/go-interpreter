@@ -10,12 +10,12 @@
     
 </head>
 <body>
-    <h1>Hello There</h1>
+    <nav class="top-nav">MonkeyScript WebREPL</nav>
     
     <div class="content-container">
         <div class="code-content-container-2">
             <div class="table-of-contents-container one">
-                <h3>Contents</h3>
+                <h2>Contents</h2>
                 <ul>
                     <li>
                         <a href="#">Repl</a>
@@ -30,6 +30,7 @@
                         <a href="#credits">Credits</a>
                     </li>
                 </ul>
+                <div style="font-size: 64px;">🐵</div>
             </div>
 
             <div id="content" class="replace-me three">
@@ -69,6 +70,9 @@
                     <li>Many Type Arrays</li>
                     <li>Builtins</li>
                 </ul>
+                <h2>IMPORTANT!</h2>
+                <p>When you input and submit an equation such as <code class="docs-code-small">let f = 2 * 2;</code> the REPL will return a blank line, that means it worked!</p>
+                <p>Any erorrs will be displayed in the REPL output, should they occur.</p>
                 <h1 id="examples">Examples</h1>
                 <p>Comments: <code class="docs-code-small">//</code> do NOT work in MonkeyScript. Be sure not to copy the Comments: <code class="docs-code-small">//</code> if you are trying these examples out! :)</p>
                 <ul class="example-list">
@@ -114,58 +118,23 @@
                         
                         let makeGreeter = fn(greeting) { fn(name) { greeting + " " + name + "!" } };
                         let heythere = makeGreeter("Hey there");
-                        heythere("Monkey"); &emsp; // Hey there Monkey!</code></pre>
+                        heythere("Monkey"); &emsp; // Hey there Monkey!
+                    
+                        let f = fn(x) {
+                            let result = x + 10;
+                            return result;
+                            return 10;
+                         };
+                         f(10);</code></pre>
                     
                 </ul>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, ab. Repellat autem labore cum optio inventore. Fugit, quidem aliquid doloribus sit nihil neque voluptate quos!</p>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+                <p>Many more tests are included in the {link me} source code! Feel free to take a look 👀</p>
                 <br>
                 <h1 id="credits">Credits</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam maiores amet velit, deleniti odio saepe? Ipsam veritatis dignissimos quam ad?</p>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+                <p>Project based on {link me} Writing an Interpreter in GO by Thornsten Ball</p>
+                <p>Backend written in GO, Frontend made with HTMX</p>
+                <p>Thank You ❤️</p>
+                <p> - Derek Dorr</p>
             </div>
         </div>
         

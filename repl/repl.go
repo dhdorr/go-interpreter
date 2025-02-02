@@ -14,15 +14,7 @@ const PROMPT = ">> "
 
 func Start(in io.Reader, out io.Writer, test_map *object.Environment, session_id, code string) string {
 	//scanner := bufio.NewScanner(in)
-
-	// TODO whenever a user logs in, check sqlite to see if they exist, if not then make them
-	// on login, add user to a dictionary of user(string:session code) -> environment
-	// client must send their session code on every PUT request to maintain environment mapping
-	// may have to move this users map to the main func and pass it in so it is not remade on every http request handle
-	// limit history to like 10 successful inputs
-	// test_map := make(map[string]*object.Environment)
 	// env := object.NewEnvironment()
-	// test_map["test"] = env
 
 	//for {
 	//fmt.Fprint(out, PROMPT)
@@ -44,9 +36,9 @@ func Start(in io.Reader, out io.Writer, test_map *object.Environment, session_id
 
 	program := p.ParseProgram()
 	if len(p.Errors()) != 0 {
-		printParserErrors(out, p.Errors())
+		new_str := printParserErrors(out, p.Errors())
 		//continue
-		return "errors"
+		return new_str
 	}
 
 	evaluated := evaluator.Eval(program, test_map)
@@ -64,10 +56,14 @@ func Start(in io.Reader, out io.Writer, test_map *object.Environment, session_id
 	return result
 }
 
-func printParserErrors(out io.Writer, errors []string) {
+func printParserErrors(out io.Writer, errors []string) string {
+	new_str := "Woops! We ran into some monkey business here!\n" + " parser errors:\n"
 	io.WriteString(out, "Woops! We ran into some monkey business here!\n")
 	io.WriteString(out, " parser errors:\n")
+
 	for _, msg := range errors {
+		new_str += "\t" + msg + "\n"
 		io.WriteString(out, "\t"+msg+"\n")
 	}
+	return new_str
 }
