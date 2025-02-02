@@ -20,6 +20,7 @@ type TestStruct struct {
 func main() {
 	// Web server starts here
 	test_map := make(map[string]*object.Environment)
+	delete_me_arr := make([]string, 0, 100)
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
@@ -33,10 +34,23 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
+
 		session_id := sessionidgenerator.String(6)
 		_, ok := test_map[session_id]
 		if !ok {
 			test_map[session_id] = object.NewEnvironment()
+			// add session id to queue, once full, start deleting from test_map
+			if len(delete_me_arr) >= 50 {
+				s := delete_me_arr[0]
+				delete_me_arr = append(delete_me_arr[:0], delete_me_arr[1:]...)
+				delete(test_map, s)
+				fmt.Println("deleting from slice and map")
+
+			}
+			delete_me_arr = append(delete_me_arr, session_id)
+
+			fmt.Printf("test_map: %v\n", test_map)
+			fmt.Printf("delete_me_arr: %v\n", delete_me_arr)
 		}
 
 		fmt.Printf("Hello %s! This is the Monkey programming language!\n", user.Username)
@@ -108,7 +122,16 @@ func main() {
 		}
 		code := r.FormValue("replBox")
 		fmt.Printf("what i got: %s!\n", code)
-		helpme := repl.Start(os.Stdin, os.Stdout, test_map[c.Value], c.Value, code)
+
+		helpme := ""
+
+		_, ok := test_map[c.Value]
+		if !ok {
+			fmt.Printf("Session ID: %s not found...\nMust've been the wind...", c.Value)
+			helpme = "Session ID not found...\nMust've been the wind..."
+		} else {
+			helpme = repl.Start(os.Stdin, os.Stdout, test_map[c.Value], c.Value, code)
+		}
 
 		tmpl, err := template.ParseFiles("./static/html/test_response.html")
 		if err != nil {

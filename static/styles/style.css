@@ -268,3 +268,7 @@ label {
 p {
     font-size: 18px;
 }
+
+.output-table tbody tr td{
+    vertical-align: top;
+}
